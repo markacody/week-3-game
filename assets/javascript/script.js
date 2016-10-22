@@ -25,17 +25,17 @@ function initApplication(){
 			var x = event.keyCode;
 			var y = String.fromCharCode(x);
 			console.log("Your guess is " + y);	
-			if (y == cSaysLetter) {
+			if (i < 9 && y == cSaysLetter) {
 				wins++;
 				document.getElementById("wins").innerHTML = wins;
-			};
-			done = document.getElementById("done");
-			done.insertAdjacentHTML('beforeend', y + ", ");
-			turns--;
-			document.getElementById("turns").innerHTML = turns;
-			if (i == 9 && y !== cSaysLetter) {
+			} else if (i == 9) {
 				losses++;
 				document.getElementById("losses").innerHTML = losses;
+			} else {
+				done = document.getElementById("done");
+				done.insertAdjacentHTML('beforeend', y + ", ");
+				turns--;
+				document.getElementById("turns").innerHTML = turns;
 			};
 		};			
 	}; 
