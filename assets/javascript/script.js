@@ -10,7 +10,6 @@ function initApplication(){
 	// create array of possible choices
 	// name variables: computerGuess, userGuess, wins, losses, left, done
 	var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','w','x','y','z'];
-	var cSays = "";
 	var uGuess = "";
 	var wins = 0;
 	var losses = 0;
@@ -18,16 +17,30 @@ function initApplication(){
 	var done = 0;
 
 	// computer picks letter from the array
-
-	// loop gives user 9 inputs
+	var cSaysLetter = letters[Math.floor(Math.random() * letters.length)];
+	console.log("The letter is " + cSaysLetter);
 		
-		// capture input in variable
-		// decrement turns and replace # in "turns"
-		// append input to "done"
-		// compare input to cSays
-			 //if match, increment wins and append to wins
-			 //if no match continue
-// after 9 attempts increment losses and append to losses 
-// restart game 
+	for (var i = 0; i <= 9; i++) {
+		var uGuess = document.onkeypress=function(event){
+			var x = event.keyCode;
+			var y = String.fromCharCode(x);
+			console.log("Your guess is " + y);	
+			if (y == cSaysLetter) {
+				wins++;
+				document.getElementById("wins").innerHTML = wins;
+			};
+			done = document.getElementById("done");
+			done.insertAdjacentHTML('beforeend', y + ", ");
+			turns--;
+			document.getElementById("turns").innerHTML = turns;
+			if (i == 9 && y !== cSaysLetter) {
+				losses++;
+				document.getElementById("losses").innerHTML = losses;
+			};
+		};			
+	}; 
+	
+	done = document.getElementById("done").innerHTML = "";
+	turns = 9;
 
 };

@@ -1,3 +1,10 @@
+body {
+	font-family: arial, sans-serif;
+	line-height: 1.5;
+}
+h1 {
+	font-size: 1em;
+}
 .wins {
 	font-style: normal;
 }
